@@ -1,0 +1,39 @@
+//Microsoft (R) Visual C# Compiler version 3.4.0-beta4-19562-05 (ff930dec)
+//Copyright (C) Microsoft Corporation. All rights reserved.
+
+// 회사에서 웹 컴파일러를 사용하였음. (스트링 포맷 예제) 2가지 방법
+// 직관적인 String.Format() 함수를 사용하는 방법과 C# 6.0부터 적용되는 문자열보간(String interpolation) 을 사용한 예제임.
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Rextester
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            int hp = 100;
+            int maxHp = 1500;
+            Console.WriteLine("TextRPG에 오신것을 환영합니다"); //단순 문자 출력
+             Console.WriteLine("=============================");
+            
+            //String massage = String.Format("당신의 Hp는 {0} 이고, 최대 성장할 수 있는 체력은 {1} 입니다.",hp,maxHp);
+             //Console.WriteLine(massage);
+            
+            String massage = $"당신의 Hp는 {hp}이며 , 최대 성장 가능한 체력은 {maxHp} 입니다."; //문자열 보간, String interpolation 사용 
+             Console.WriteLine(massage);
+             Console.WriteLine("안녕하세요.");
+            int mp = 150;
+            Console.WriteLine($"당신의 마력은 {mp} 입니다."); // String 변수에 저장하지않고 바로 출력 
+            
+            
+            
+            
+            
+        }
+    }
+}
