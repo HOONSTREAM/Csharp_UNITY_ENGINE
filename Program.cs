@@ -4,6 +4,12 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace Csharp_practice
 {
+
+    enum Choice_symbol {
+        Rock = 1,
+        Scissors = 0,
+        Paper=2 
+    }
     class Program
     {
         static void Main(string[] args)
@@ -27,14 +33,14 @@ namespace Csharp_practice
             switch (choice)
             {
 
-                case 0:
+                case (int)Choice_symbol.Scissors:
                     Console.WriteLine("당신의 선택은 가위 입니다.");
 
                     break;
-                case 1:
+                case (int)Choice_symbol.Rock:
                     Console.WriteLine("당신의 선택은 바위 입니다.");
                     break;
-                case 2:
+                case (int)Choice_symbol.Paper:
                     Console.WriteLine("당신의 선택은 보 입니다.");
                     break;
             }
@@ -48,14 +54,14 @@ namespace Csharp_practice
             switch (aichoice)
             {
 
-                case 0:
+                case (int)Choice_symbol.Scissors:
                     Console.WriteLine("컴퓨터의 선택은 가위 입니다.");
 
                     break;
-                case 1:
+                case (int)Choice_symbol.Rock:
                     Console.WriteLine("컴퓨터의 선택은 바위 입니다.");
                     break;
-                case 2:
+                case (int)Choice_symbol.Paper:
                     Console.WriteLine("컴퓨터의 선택은 보 입니다.");
                     break;
 
@@ -65,26 +71,26 @@ namespace Csharp_practice
 
             //컴퓨터의 난수와 사용자의 지정 수를 통해 최종 비교연산을 통한 승부 
 
-            if (choice == 0)
+            if (choice == (int)Choice_symbol.Scissors)
             {
                 bool Draw = (aichoice == choice) ? true : false;
 
                 if (Draw)
                     Console.WriteLine("비겼습니다.");
-                else if (aichoice == 1)
+                else if (aichoice == (int)Choice_symbol.Rock)
                     Console.WriteLine("당신이 졌습니다.");
                 else
                     Console.WriteLine("당신이 이겼습니다 ! ");
 
             }
 
-            else if (choice == 1)
+            else if (choice == (int)Choice_symbol.Rock)
             {
                 bool Draw = (aichoice == choice) ? true : false;
 
                 if (Draw)
                     Console.WriteLine("비겼습니다.");
-                else if (aichoice == 0)
+                else if (aichoice == (int)Choice_symbol.Scissors)
                     Console.WriteLine("당신이 이겼습니다 !");
                 else
                     Console.WriteLine("당신이 졌습니다. ");
@@ -98,7 +104,7 @@ namespace Csharp_practice
 
                 if (Draw)
                     Console.WriteLine("비겼습니다.");
-                else if (aichoice == 0)
+                else if (aichoice == (int)Choice_symbol.Scissors)
                     Console.WriteLine("당신이 졌습니다.");
                 else
                     Console.WriteLine("당신이 이겼습니다. ");
