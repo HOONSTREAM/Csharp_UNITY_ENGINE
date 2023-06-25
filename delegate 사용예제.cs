@@ -1,5 +1,8 @@
 ﻿namespace delegate_사용예제_II
 {
+
+     //델리게이트와 이벤트 차이점 : https://grayt.tistory.com/109
+     
     class Program
     {
         public enum MarketType
