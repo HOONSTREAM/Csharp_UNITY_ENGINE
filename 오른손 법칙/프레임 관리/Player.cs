@@ -43,7 +43,7 @@ namespace 프레임_관리
             PosX = posx;
             _board = board;
 
-            int[] FrontY = new int[] { -1, 0, 1, 0 }; // Y 기준으로 위로 갈때는 -1, 아래로 갈때는 + 1 좌우는 Y좌표 변화없음 0
+            int[] FrontY = new int[] { -1, 0, 1, 0 }; // Y 기준으로 위로 갈때는 -1이 줄어야하고, 아래로 갈때는 + 1 좌우는 Y좌표 변화없음 0
             int[] FrontX = new int[] { 0, -1, 0, 1 }; // X기준으로 왼쪽으로 갈때는 -1 , 오른쪽 +1 위아래는 X좌표 변화없음 0
             int[] RightY = new int[] { 0, -1, 0, 1 };
             int[] RightX = new int[] { 1, 0, -1, 0 };
