@@ -11,7 +11,7 @@
         {
             InputManager inputmanager = new InputManager();
 
-            inputmanager.inputkey += OninputTest;
+            inputmanager.inputkey += OninputTest; //event 에다가 델리게이트 함수를 추가
 
             while (true){
 
