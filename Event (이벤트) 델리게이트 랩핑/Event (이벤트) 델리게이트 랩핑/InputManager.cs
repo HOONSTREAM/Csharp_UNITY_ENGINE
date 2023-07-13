@@ -11,7 +11,7 @@ namespace Event__이벤트__델리게이트_랩핑
     {
 
         public delegate void OninputKey();
-        public event OninputKey inputkey; 
+        public event OninputKey inputkey; //Oninputkey를 대상으로 event (delegate 랩핑)
 
         public void Update()
         {
