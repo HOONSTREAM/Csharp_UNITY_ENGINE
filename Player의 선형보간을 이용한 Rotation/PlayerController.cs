@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-// 1.À§Ä¡ º¤ÅÍ 
-// 2.¹æÇâ º¤ÅÍ (»ó´ë¹æÀ§Ä¡ - ³» À§Ä¡ = ¹æÇâ) °Å¸®(Å©±â)magnitude ¸¦ ¾òÀ» ¼ö ÀÖ°í ½ÇÁ¦ ¹æÇâÀ» ¾òÀ» ¼ö ÀÖ´Ù.
+//Quaternion ì‚¬ìš©(4ì›ì†Œ)ì„ ì´ìœ ë¡œ ì§ë²Œë½(gimbal lock)ì— ëŒ€í•œ ì´í•´ í•„ìš”
+// 1.ìœ„ì¹˜ ë²¡í„° 
+// 2.ë°©í–¥ ë²¡í„° (ìƒëŒ€ë°©ìœ„ì¹˜ - ë‚´ ìœ„ì¹˜ = ë°©í–¥) ê±°ë¦¬(í¬ê¸°)magnitude ë¥¼ ì–»ì„ ìˆ˜ ìˆê³  ì‹¤ì œ ë°©í–¥ì„ ì–»ì„ ìˆ˜ ìˆë‹¤.
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] // SerializeField¸¦ »ç¿ëÇÏ¿© º¯¼ö´Â private·Î °¨Ãß°í, UnityTool¿¡¼­ Á÷Á¢ ¼öÁ¤ÇÏ¿© »ç¿ë°¡´É.
+    [SerializeField] // SerializeFieldë¥¼ ì‚¬ìš©í•˜ì—¬ ë³€ìˆ˜ëŠ” privateë¡œ ê°ì¶”ê³ , UnityToolì—ì„œ ì§ì ‘ ìˆ˜ì •í•˜ì—¬ ì‚¬ìš©ê°€ëŠ¥.
      float _speed = 5.0f;
     
     void Start()
@@ -26,33 +26,33 @@ public class PlayerController : MonoBehaviour
 
        // transform.rotation = Quaternion.Euler(new Vector3(0.0f, _yAngle, 0.0f));
 
-        //Vector3¿¡ ¿¹¾àµÈ forward,back,left,right »ç¿ë
-        //transform.TransformDirectionÀ» »ç¿ëÇÏ¿© Local -> World ÁÂÇ¥°è º¯È¯
-        //InverseTransformDirection World->local º¯È¯
+        //Vector3ì— ì˜ˆì•½ëœ forward,back,left,right ì‚¬ìš©
+        //transform.TransformDirectionì„ ì‚¬ìš©í•˜ì—¬ Local -> World ì¢Œí‘œê³„ ë³€í™˜
+        //InverseTransformDirection World->local ë³€í™˜
         if (Input.GetKey(KeyCode.W)) 
         {
-            Debug.Log("WÅ° ÀÔ·Â");
+            Debug.Log("Wí‚¤ ì…ë ¥");
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 0.2f);
-            transform.position += transform.TransformDirection(Vector3.forward * Time.deltaTime * _speed); // Translate ÇÔ¼ö¸¦ ÀÌ¿ëÇØµµ ¹Ø°ú µ¿ÀÏÇÔ(°¡µ¶¼ºÇâ»ó)
+            transform.position += transform.TransformDirection(Vector3.forward * Time.deltaTime * _speed); // Translate í•¨ìˆ˜ë¥¼ ì´ìš©í•´ë„ ë°‘ê³¼ ë™ì¼í•¨(ê°€ë…ì„±í–¥ìƒ)
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            Debug.Log("SÅ° ÀÔ·Â");
+            Debug.Log("Sí‚¤ ì…ë ¥");
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.back), 0.2f);
-            transform.position += transform.TransformDirection(Vector3.back * Time.deltaTime * _speed); // ¿ùµå¸¦ ·ÎÄÃ·Î º¯È¯ÇÏ¿© position¿¡ ´õÇØÁÜ
+            transform.position += transform.TransformDirection(Vector3.back * Time.deltaTime * _speed); // ì›”ë“œë¥¼ ë¡œì»¬ë¡œ ë³€í™˜í•˜ì—¬ positionì— ë”í•´ì¤Œ
         }
            
         if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("AÅ° ÀÔ·Â");
+            Debug.Log("Aí‚¤ ì…ë ¥");
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.left), 0.2f);
              transform.position += transform.TransformDirection(Vector3.left * Time.deltaTime * _speed);
         }
             
         if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("DÅ° ÀÔ·Â");
+            Debug.Log("Dí‚¤ ì…ë ¥");
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.right), 0.2f);
             transform.position += transform.TransformDirection(Vector3.right * Time.deltaTime * _speed);
         }
