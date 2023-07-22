@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Managers : MonoBehaviour
 {
-    static Managers s_instance; // °´Ã¼ À¯ÀÏ¼º º¸Àå (½ºÅÂÆ½ ÀÎ½ºÅÏ½º) - ½ºÅÂÆ½ °´Ã¼ »ı¼º
-    public static Managers Instance { get { Init();  return s_instance; } } // À¯ÀÏÇÑ ¸Å´ÏÀú¸¦ °¡Á®¿Â´Ù. (ÇÁ·ÎÆÛÆ¼ »ç¿ë)
+    static Managers s_instance; // ê°ì²´ ìœ ì¼ì„± ë³´ì¥ (ìŠ¤íƒœí‹± ì¸ìŠ¤í„´ìŠ¤) - ìŠ¤íƒœí‹± ê°ì²´ ìƒì„±
+    public static Managers Instance { get { Init();  return s_instance; } } // ìœ ì¼í•œ ë§¤ë‹ˆì €ë¥¼ ê°€ì ¸ì˜¨ë‹¤. (í”„ë¡œí¼í‹° ì‚¬ìš©)
 
     // Start is called before the first frame update
     void Start()
@@ -19,19 +19,19 @@ public class Managers : MonoBehaviour
 
     }
 
-    static void Init() //ÀÎ½ºÅÏ½º°¡ nullÀÏ¶§ ¹ß»ıÇÏ´Â crash ¹æÁö
+    static void Init() //ì¸ìŠ¤í„´ìŠ¤ê°€ nullì¼ë•Œ ë°œìƒí•˜ëŠ” crash ë°©ì§€
     {
-        if (s_instance == null) // instanceÀÇ Managers ÄÄÆ÷³ÍÆ®¸¦ ±Ü¾î¿À°í ½ÍÀ»¶§ null ÀÌ¶ó¸é
+        if (s_instance == null) // instanceì˜ Managers ì»´í¬ë„ŒíŠ¸ë¥¼ ê¸ì–´ì˜¤ê³  ì‹¶ì„ë•Œ null ì´ë¼ë©´
         {
-            GameObject go = GameObject.Find("@Managers"); // Gameobject @Managers ¸¦ Ã£¾Æº¸°í ¸¸¾à¿¡ null ÀÌ¶ó¸é
+            GameObject go = GameObject.Find("@Managers"); // Gameobject @Managers ë¥¼ ì°¾ì•„ë³´ê³  ë§Œì•½ì— null ì´ë¼ë©´
 
-            if (go == null) // ÇÏÀÌ¶óÅ°UI¿¡¼­ CreateGameobject,ÈÄ ÄÄÆ÷³ÍÆ®¸¦ ºÙÀÌ´Â ÀÛ¾÷À» ÄÚµå·Î ÇÑ´Ù.
+            if (go == null) // í•˜ì´ë¼í‚¤UIì—ì„œ CreateGameobject,í›„ ì»´í¬ë„ŒíŠ¸ë¥¼ ë¶™ì´ëŠ” ì‘ì—…ì„ ì½”ë“œë¡œ í•œë‹¤.
             {
                 go = new GameObject { name = "@Managers" };
                 go.AddComponent<Managers>();
             }
-            DontDestroyOnLoad(go); // ÀÌ °ÔÀÓ¿ÀºêÁ§Æ®´Â ¸¶À½´ë·Î »èÁ¦ÇÒ ¼ö ¾ø´Ù.
-            Managers mg = go.GetComponent<Managers>();
+            DontDestroyOnLoad(go); // ì´ ê²Œì„ì˜¤ë¸Œì íŠ¸ëŠ” ë§ˆìŒëŒ€ë¡œ ì‚­ì œí•  ìˆ˜ ì—†ë‹¤.
+           s_instance = go.GetComponent<Managers>(); //s_instance ìŠ¤íƒœí‹±ê°ì²´ì— Managers ì»´í¬ë„ŒíŠ¸ í• ë‹¹í•œë‹¤.
         }
     }
 }
