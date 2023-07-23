@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Åø·Î Á÷Á¢ ¿¬°áÇÒ ¼ö ÀÖÁö¸¸ °ÔÀÓ ÇÁ·ÎÁ§Æ®°¡ Ä¿Áö¸é ÀÏÀÏÀÌ ¿¬°áÇÏ±â Èûµå¹Ç·Î,
-//ÄÚµå»óÀ¸·Î ÇÁ¸®ÆéÀ» »ı¼ºÇÒ ¼ö ÀÖµµ·Ï ÇÑ´Ù.
+//íˆ´ë¡œ ì§ì ‘ ì—°ê²°í•  ìˆ˜ ìˆì§€ë§Œ ê²Œì„ í”„ë¡œì íŠ¸ê°€ ì»¤ì§€ë©´ ì¼ì¼ì´ ì—°ê²°í•˜ê¸° í˜ë“œë¯€ë¡œ,
+//ì½”ë“œìƒìœ¼ë¡œ í”„ë¦¬í©ì„ ìƒì„±í•  ìˆ˜ ìˆë„ë¡ í•œë‹¤.
 public class ResourcesManager
 {
     public T Load<T>(string path) where T : Object
     {
-        return Resources.Load<T>(path); //(ÇÁ¸®Æé ¿ÀºêÁ§Æ® »ı¼º(½ÇÃ¼È­¾Æ´Ô))ÇÔ¼ö¸¦ ¸®ÅÏÇÑ´Ù. path : Æú´õ°æ·Î (ÇÔ¼ö·¦ÇÎ)
+        return Resources.Load<T>(path); //(í”„ë¦¬í© ì˜¤ë¸Œì íŠ¸ ìƒì„±(ì‹¤ì²´í™”ì•„ë‹˜))í•¨ìˆ˜ë¥¼ ë¦¬í„´í•œë‹¤. path : í´ë”ê²½ë¡œ (í•¨ìˆ˜ë©í•‘) , ë¦¬í„´ ë°˜í™˜í˜•ì€ GameObject
     }
 
-    //Instantiate()ÇÔ¼ö¸¦ »ç¿ëÇÏ¸é °ÔÀÓÀ» ½ÇÇàÇÏ´Â µµÁß¿¡ °ÔÀÓ¿ÀºêÁ§Æ®¸¦ »ı¼ºÇÒ ¼ö ÀÖ´Ù.
-    public GameObject Instantiate(string path, Transform parent = null) //Instantiate ÇÔ¼ö(Gameobject ½ÇÃ¼»ı¼ºÀ» ¸®ÅÏÇÏ´ÂÇÔ¼ö) ·¦ÇÎ
+    //Instantiate()í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ë©´ ê²Œì„ì„ ì‹¤í–‰í•˜ëŠ” ë„ì¤‘ì— ê²Œì„ì˜¤ë¸Œì íŠ¸ë¥¼ ìƒì„±í•  ìˆ˜ ìˆë‹¤.
+    public GameObject Instantiate(string path, Transform parent = null) //Instantiate í•¨ìˆ˜(Gameobject ì‹¤ì²´ìƒì„±ì„ ë¦¬í„´í•˜ëŠ”í•¨ìˆ˜) ë©í•‘
     {
-        GameObject prefab = Load<GameObject>($"PreFabs/{path}"); //Resources.Load ÇÔ¼ö¸¦ ·¦ÇÎÇÑ ÇÔ¼ö¸¦ °¡Á®¿Â´Ù.
+        GameObject prefab = Load<GameObject>($"PreFabs/{path}"); //Resources.Load í•¨ìˆ˜ë¥¼ ë©í•‘í•œ í•¨ìˆ˜ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
         if (prefab == null)
         {
             Debug.Log($"Failed to load prefab : {path}");
             return null;
         }
 
-        return Object.Instantiate(prefab, parent); //Object.À» ¾ÈºÙÀÌ¸é ¸®¼Ò½º¸Å´ÏÀú Å¬·¡½º ¾ÈÀÇ ·¦ÇÎÇÔ¼ö Instatiate¸¦ Àç±ÍÈ£Ãâ ÇØ¹ö¸®±â ¶§¹®.
+        return Object.Instantiate(prefab, parent); //Object.ì„ ì•ˆë¶™ì´ë©´ ë¦¬ì†ŒìŠ¤ë§¤ë‹ˆì € í´ë˜ìŠ¤ ì•ˆì˜ ë©í•‘í•¨ìˆ˜ Instatiateë¥¼ ì¬ê·€í˜¸ì¶œ í•´ë²„ë¦¬ê¸° ë•Œë¬¸.
     }
 
     public void Destroy(GameObject go)
