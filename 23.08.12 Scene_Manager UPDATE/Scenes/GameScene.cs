@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameScene : BaseScene
+{
+    
+    protected override void Init()
+    {
+        base.Init();
+
+        SceneType = Define.Scene.Game;
+
+        Managers.UI.ShowSceneUI<UI_Inven>(); //UI_Inven ¾À »ý¼º
+
+    }
+    public override void Clear()
+    {
+        
+    }
+
+   
+
+    
+  
+}
